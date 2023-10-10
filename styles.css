@@ -1,0 +1,33 @@
+/* Add some basic styling to the grid items */
+.grid-item {
+    /* Allows us to shrink/sqash screen while maintaining grid */
+    width: 2.5vw; /* 2.5% of the viewport width */
+    height: 2.5vw; 
+    background-color: lightgray;
+    border: 1px solid gray;
+    float: left; /* Float the columns next to each other */ 
+    margin: 0px; /* Adjust the margin to make the items closer*/
+}
+
+.grid-container {
+    margin: 0 auto; /* Set left and right margins to auto for centering */
+    overflow: hidden; /* Clear floated elements within the container */
+    min-width: 480px; /* Set a minimum width for the container */
+    display: grid;
+    justify-content: center;
+}
+
+/* We have to clear floats since we used it above to have the colums
+next to each */
+.grid-row::after {
+    content: ""; /* This generates an empty content box for the pseudo-element */
+    clear: both; /* Clear floats after the columns */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .grid-item {
+        width: 4vw; /* Adjust the width for smaller screens */
+        height: 4vw; /* Adjust the height for smaller screens */
+    }
+}
